@@ -57,7 +57,7 @@ Most changes take effect immediately via Hyprland's auto-reload, but a full log 
 
 ## Optional: Microsoft Surface Pro 7
 
-> **Prerequisites:** These steps assume you are running the custom linux-surface kernel and have installed the associated packages. See the [linux-surface project](https://github.com/linux-surface/linux-surface) for installation instructions before proceeding.
+> **Note:** These dotfiles are configured for the [linux-surface](https://github.com/linux-surface/linux-surface) custom kernel. If installing on a Surface Pro 7, follow the linux-surface installation guide first to set up the kernel and associated packages before running the scripts below.
 
 If installing on a Surface Pro 7, run the following to add touchscreen device mapping for correct HiDPI coordinate alignment:
 
@@ -66,10 +66,6 @@ bash install-surface.sh
 ```
 
 Skip this on any other machine.
-
-### Camera support
-
-Camera support on the Surface Pro 7 is not yet available under linux-surface. Check the [linux-surface wiki](https://github.com/linux-surface/linux-surface/wiki) for the latest status.
 
 ---
 
