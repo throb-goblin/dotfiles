@@ -49,6 +49,16 @@ bash install-all.sh
 
 > Plymouth is installed last intentionally — it overwrites Omarchy's default boot images with the custom ones.
 
+### 4a. Surface Pro 7 only (optional)
+
+If installing on a Microsoft Surface Pro 7, run the Surface input script to add touchscreen device mapping:
+
+```bash
+bash install-surface.sh
+```
+
+This appends the Surface touchscreen mapping to `~/.config/hypr/input.conf`. Skip this on any other machine.
+
 ### 4. Log out and back in
 
 Most changes take effect immediately via Hyprland's auto-reload, but a full log out/in ensures everything is applied cleanly.
