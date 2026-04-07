@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=Calculator (NaSC)
+Comment=Terminal based calculator
+Exec=alacritty -e /home/papa_palp/.local/bin/nasc
+Terminal=false
+Type=Application
+Icon=/home/papa_palp/.local/share/applications/icons/Calculator (NaSC).png
+StartupNotify=true

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=Copilot
+Comment=Copilot
+Exec=omarchy-launch-webapp https://m365.cloud.microsoft/chat/
+Terminal=false
+Type=Application
+Icon=/home/papa_palp/.local/share/applications/icons/Copilot.png
+StartupNotify=true

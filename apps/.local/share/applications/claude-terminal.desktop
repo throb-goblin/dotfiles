@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Name=Claude Terminal
+Comment=Claude Code (full trust)
+Exec=/home/papa_palp/.local/bin/claude-terminal
+Terminal=false
+Type=Application
+Icon=/home/papa_palp/.local/share/applications/icons/Claude.png
+StartupNotify=true
+StartupWMClass=ClaudeTerminal

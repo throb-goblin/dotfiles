@@ -1,0 +1,8 @@
+#!/bin/bash
+set -euo pipefail
+
+cd "$HOME"
+
+exec uwsm-app -- alacritty \
+  --class ClaudeTerminal,ClaudeTerminal \
+  -e bash -c 'claude --dangerously-skip-permissions'

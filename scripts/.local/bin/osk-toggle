@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# --- Defaults (you can override via env vars when calling) ---
+BIN="${BIN:-wvkbd-mobintl}"                 # or wvkbd-deskintl if you build it
+HEIGHT="${HEIGHT:-240}"                      # portrait height
+LHEIGHT="${LHEIGHT:-$HEIGHT}"                # landscape height (defaults to same as portrait)
+RADIUS="${RADIUS:-12}"                       # corner rounding
+FONT="${FONT:-CaskaydiaCove Nerd Font 14}"   # ensure this matches `fc-list` output exactly
+EXTRA_OPTS="${EXTRA_OPTS:-}"                 # any extra flags you want to pass
+
+# If a keyboard is already running, just toggle it (fast path).
+if pgrep -x "$BIN" >/dev/null; then
+  pkill -x -SIGRTMIN "$BIN"
+  exit 0
+fi
+
+# Otherwise, start a new one (visible immediately).
+# If you prefer it to start hidden, add --hidden and then send SIGUSR2 to show.
+"$BIN" -H "$HEIGHT" -L "$LHEIGHT" -R "$RADIUS" --fn "$FONT" $EXTRA_OPTS & disown
+

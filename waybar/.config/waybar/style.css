@@ -1,0 +1,320 @@
+@import "../omarchy/current/theme/waybar.css";
+
+@define-color base-bg   @background;
+@define-color accent    @foreground;
+@define-color hover-bg  alpha(@background, 0.7);
+@define-color warning   #e5c07b;
+@define-color critical  #e06c75;
+@define-color inactive  #6a7a71;
+
+/* Resets */
+* {
+  border: none;
+  border-radius: 0;
+  font-family: 'JetBrainsMono Nerd Font Mono';
+  font-size: 14px;
+  font-weight: bold;
+  min-height: 0;
+}
+
+window#waybar {
+  background: transparent;
+  margin-top: 10px;
+}
+
+/* General module styles */
+#cpu,
+#memory,
+#temperature,
+#custom-update,
+#bluetooth,
+#network,
+#pulseaudio,
+#battery,
+#custom-omarchy,
+#custom-osk,
+#clock {
+  background-color: @background;
+  color: @foreground;
+  padding: 0 10px;
+  margin: 5px 0;
+  transition: background-color 0.3s ease;
+}
+
+/* Slightly tighter for the left cluster */
+#cpu,
+#memory,
+#temperature {
+  padding: 0 6px;
+}
+
+/* Consistent hover */
+#cpu:hover,
+#memory:hover,
+#temperature:hover,
+#custom-update:hover,
+#bluetooth:hover,
+#network:hover,
+#pulseaudio:hover,
+#battery:hover,
+#custom-omarchy:hover,
+#custom-osk:hover {
+  background-color: @hover-bg;
+}
+
+/* Window title */
+#window {
+  margin: 5px 0;
+  background: @background;
+  padding: 0 10px;
+  border-radius: 16px;
+  margin-left: 10px;
+  color: @foreground;
+}
+
+window#waybar.empty #window {
+  background: transparent;
+  padding: 0;
+  margin-left: 0;
+}
+
+/* Left cluster */
+#cpu {
+  border-top-left-radius: 16px;
+  border-bottom-left-radius: 16px;
+  margin-left: 10px;
+  padding-left: 10px;
+}
+
+#memory {
+  border-radius: 0;
+}
+
+#temperature {
+  border-top-right-radius: 16px;
+  border-bottom-right-radius: 16px;
+  padding-right: 10px;
+}
+
+/* Update module */
+#custom-update {
+  border-radius: 16px;
+  margin-left: 10px;
+  padding-right: 12px;
+}
+
+/* Workspaces */
+#workspaces {
+  background-color: @background;
+  color: @foreground;
+  margin: 5px 0;
+  transition: background-color 0.3s ease;
+  border-radius: 16px;
+  padding: 0 3px;
+}
+
+#workspaces button {
+  color: @inactive;
+  background: transparent;
+  padding: 0 6px;
+  border-radius: 10px;
+}
+
+#workspaces button:hover {
+  background-color: rgba(185, 246, 202, 0.10);
+}
+
+#workspaces button.active {
+  color: @accent;
+}
+
+/* MPRIS */
+#mpris {
+  background-color: @background;
+  color: @foreground;
+  padding: 0 10px;
+  margin: 5px 6px;
+  border-radius: 16px;
+  transition: background-color 0.3s ease;
+}
+
+#mpris.empty {
+  background-color: transparent;
+  color: transparent;
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+/* Right-side fused cluster */
+
+/* Group wrapper provides left margin for the pill */
+#group-tray-expander,
+#tray-expander {
+  background-color: transparent;
+  color: @foreground;
+  margin: 5px 0 5px 10px;
+  padding: 0;
+}
+
+/* Expand icon owns the rounded left cap */
+#custom-expand-icon {
+  background-color: @background;
+  color: #ffffff;
+  margin: 0;
+  padding: 0 10px 0 8px;
+  border-top-left-radius: 16px;
+  border-bottom-left-radius: 16px;
+  border-right: 2px solid @background;
+  transition: background-color 0.3s ease, border-right-color 0.3s ease;
+}
+
+/* Hover highlights the full rounded cap */
+#custom-expand-icon:hover {
+  background-color: @hover-bg;
+  border-right-color: @hover-bg;
+}
+
+/* Tray container fills the pill background */
+#tray {
+  background-color: @background;
+  color: @foreground;
+  margin: 0;
+  padding: 0 4px;
+  border: none;
+  border-radius: 0;
+}
+
+/* Drawer child hook matches pill */
+.tray-group-item {
+  background-color: @background;
+  color: @foreground;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+}
+
+/* Tray items: transparent over the pill background */
+#tray > .passive,
+#tray > .active,
+#tray > .needs-attention {
+  background-color: transparent;
+  margin: 0;
+  padding: 0 4px;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* Hover backing matches the pill hover, but remains square */
+#tray > .passive:hover,
+#tray > .active:hover,
+#tray > .needs-attention:hover {
+  background-color: @hover-bg;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* Continue the pill to the right */
+#custom-osk,
+#bluetooth,
+#network,
+#pulseaudio,
+#battery,
+#custom-omarchy {
+  background-color: @background;
+  color: @foreground;
+  margin: 5px 0;
+  padding: 0 10px;
+  border-radius: 0;
+}
+
+/* OSK, wifi: larger icons to match tray icon size */
+#custom-osk,
+#network {
+  font-size: 24px;
+  min-height: 0;
+  min-width: 0;
+}
+
+/* OSK sits flush after the tray group */
+#custom-osk {
+  margin-left: 0;
+}
+
+/* Right edge of pill */
+#custom-omarchy {
+  border-top-right-radius: 16px;
+  border-bottom-right-radius: 16px;
+  margin-right: 10px;
+}
+
+/* Make right-side glyph icons larger */
+#custom-expand-icon,
+#bluetooth,
+#pulseaudio,
+#battery,
+#custom-omarchy {
+  font-size: 16px;
+}
+
+/* Clock */
+#clock {
+  background-color: @accent;
+  color: @base-bg;
+  border-radius: 16px;
+  margin-right: 10px;
+  padding-right: 10px;
+}
+
+#clock:hover {
+  background-color: @background;
+  color: @foreground;
+}
+
+/* Module states */
+#network.disconnected,
+#bluetooth.disabled,
+#pulseaudio.muted {
+  color: @critical;
+}
+
+#battery.warning:not(.charging) {
+  color: @warning;
+}
+
+#battery.charging,
+#battery.plugged {
+  color: @accent;
+}
+
+/* Blink for critical battery */
+@keyframes blink {
+  to {
+    background-color: @critical;
+    color: @base-bg;
+  }
+}
+
+#battery.critical:not(.charging) {
+  background-color: @critical;
+  color: @base-bg;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+/* Tooltip */
+tooltip {
+  background-color: @background;
+  border: 2px solid @accent;
+  border-radius: 16px;
+  padding: 8px 12px;
+}
+
+tooltip label {
+  color: @foreground;
+}
