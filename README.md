@@ -97,7 +97,7 @@ stow -D hypr
 |-----|--------|
 | `SUPER + B` | Browser (Brave) |
 | `SUPER + A` | Copilot |
-| `SUPER + SHIFT + A` | ChatGPT |
+| `SUPER + SHIFT + A` | Claude AI |
 | `SUPER + SHIFT + Return` | Browser |
 | `SUPER + SHIFT + C` | Calculator (NaSC) |
 | `SUPER + SHIFT + G` | Signal |
