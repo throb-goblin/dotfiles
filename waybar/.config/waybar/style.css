@@ -146,6 +146,14 @@ window#waybar.empty #window {
   border: none;
 }
 
+#mpris.stopped {
+  background-color: transparent;
+  color: transparent;
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
 /* Right-side fused cluster */
 
 /* Group wrapper provides left margin for the pill */

@@ -3,11 +3,11 @@ set -euo pipefail
 
 # --- Defaults (you can override via env vars when calling) ---
 BIN="${BIN:-wvkbd-mobintl}"                 # or wvkbd-deskintl if you build it
-HEIGHT="${HEIGHT:-240}"                      # portrait height
-LHEIGHT="${LHEIGHT:-$HEIGHT}"                # landscape height (defaults to same as portrait)
-RADIUS="${RADIUS:-12}"                       # corner rounding
-FONT="${FONT:-CaskaydiaCove Nerd Font 14}"   # ensure this matches `fc-list` output exactly
-EXTRA_OPTS="${EXTRA_OPTS:-}"                 # any extra flags you want to pass
+HEIGHT="${HEIGHT:-300}"                              # portrait height
+LHEIGHT="${LHEIGHT:-$HEIGHT}"                        # landscape height (defaults to same as portrait)
+RADIUS="${RADIUS:-12}"                               # corner rounding
+FONT="${FONT:-JetBrainsMono Nerd Font Mono 14}"      # system font; must match `fc-list` output exactly
+EXTRA_OPTS="${EXTRA_OPTS:---output eDP-1 -l simple}" # pin to built-in display; use simple layout
 
 # If a keyboard is already running, just toggle it (fast path).
 if pgrep -x "$BIN" >/dev/null; then
