@@ -120,7 +120,7 @@
   "custom/osk": {
     "format": "",
     "tooltip-format": "Toggle On‑Screen Keyboard",
-    "on-click": "osk-toggle"
+    "on-click": "/home/papa_palp/.local/bin/osk-toggle"
   },
 
   "bluetooth": {
