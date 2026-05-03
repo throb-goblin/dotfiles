@@ -8,7 +8,7 @@
   "margin-left": 2,
   "margin-right": 2,
 
-  "modules-left": ["cpu", "memory", "temperature", "hyprland/window"],
+  "modules-left": ["custom/power", "cpu", "memory", "temperature", "hyprland/window"],
   "modules-center": ["hyprland/workspaces", "custom/update", "mpris"],
   "modules-right": [
     "group/tray-expander",
@@ -27,6 +27,12 @@
     "tooltip": false
   },
 
+  "custom/power": {
+    "format": "󰐥",
+    "on-click": "omarchy-menu system",
+    "tooltip-format": "Power menu"
+  },
+
   "cpu": {
     "interval": 5,
     "format": "{usage}%",
@@ -38,14 +44,17 @@
     "format": "{used:0.1f}G",
     "interval": 2,
     "on-click": "omarchy-launch-or-focus-tui btop",
-    "tooltip": false
+    "tooltip": true,
+    "tooltip-format": "RAM usage: {used:0.1f}G / {total:0.1f}G"
   },
 
   "temperature": {
     "hwmon-path": "/sys/devices/platform/coretemp.0/hwmon/hwmon5/temp1_input",
     "critical-threshold": 80,
     "format": "{temperatureC}°C",
-    "tooltip": false
+    "on-click": "omarchy-launch-or-focus-tui btop",
+    "tooltip": true,
+    "tooltip-format": "CPU temperature: {temperatureC}°C"
   },
 
   "hyprland/workspaces": {
@@ -139,8 +148,8 @@
     "format-wifi": "{icon}",
     "format-ethernet": "󰀂",
     "format-disconnected": "󰤮",
-    "tooltip-format-wifi": "{essid} ({frequency} GHz)\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
-    "tooltip-format-ethernet": "⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+    "tooltip-format-wifi": "{essid} ({frequency} GHz)",
+    "tooltip-format-ethernet": "Connected",
     "tooltip-format-disconnected": "Disconnected",
     "interval": 3,
     "spacing": 1,
