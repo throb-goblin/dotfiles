@@ -1,17 +1,31 @@
 @define-color selected-text #ff5a5a;
 @define-color text #ffffff;
 @define-color base #1b1112;
-@define-color border #ed5f55;
+@define-color border #1b1112;
 @define-color foreground #B33A3A;
 @define-color background #2B2826;
 @define-color hover #ff4c4c;
 @define-color accent #ff3a3a;
 
+window * {
+  all: unset;
+  color: @text;
+  background: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+  font-size: 13px;
+}
+
+window .box-wrapper {
+  background-color: @base;
+  border: 2px solid @border;
+  border-radius: 16px;
+  padding: 3px;
+}
+
 #window {
-  background: @background;
-  border-radius: 10px;
-  padding: 2px;
-  border: 1px solid alpha(@border, 0.3);
+  background: transparent;
 }
 
 #box {
